@@ -1,6 +1,5 @@
 {
-    "sketch": "test.ino",
+    "sketch": "relay\\relay_button.ino",
     "board": "arduino:avr:uno",
-    "port": "COM3",
-    "output": "./build"
+    "port": "COM3"
 }
