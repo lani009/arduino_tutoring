@@ -1,5 +1,5 @@
 {
-    "sketch": "relay\\relay_button.ino",
+    "sketch": "thermometer\\dht11\\dht11_example.ino",
     "board": "arduino:avr:uno",
     "port": "COM3"
 }
