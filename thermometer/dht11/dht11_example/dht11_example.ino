@@ -1,29 +1,22 @@
 #include <SimpleDHT.h>
-int thermo_pin = A0;
 
-SimpleDHT11 dht11(thermo_pin);
+SimpleDHT11 dht(2);
+
 void setup() {
     Serial.begin(9600);
 }
 
 void loop() {
-    // start working...
-    Serial.println("=================================");
-    Serial.println("Sample DHT11...");
+    byte temp;  // 온도
+    byte humid; // 습도
 
-    // read without samples.
-    byte temperature = 0;
-    byte humidity = 0;
-    int err = SimpleDHTErrSuccess;
-    if ((err = dht11.read(&temperature, &humidity, NULL)) != SimpleDHTErrSuccess) {
-        Serial.print("Read DHT11 failed, err="); Serial.println(err);delay(1000);
-        return;
-    }
-    
-    Serial.print("Sample OK: ");
-    Serial.print((int)temperature); Serial.print(" *C, "); 
-    Serial.print((int)humidity); Serial.println(" H");
-    
-    // DHT11 sampling rate is 1HZ.
+    dht.read(&temp, &humid, NULL);  // temp 변수에는 온도가 들어가고, humid 변수에는 습도가 들어간다.
+
+    Serial.print("온도: ");
+    Serial.print((int)temp);
+    Serial.print(" 습도: ");
+    Serial.print((int)humid);
+    Serial.println();
+
     delay(1500);
 }
